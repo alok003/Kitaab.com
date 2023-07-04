@@ -24,7 +24,19 @@ module.exports.sign_out= function(req,res){
 module.exports.Nadmin = async function(req,res){
     const admin= await Admin.findOne({username:req.body.username});
     if(!admin){
+        console.log(req.body);
         const cAdmin=await Admin.create(req.body);
+
     }
     return res.redirect('back');
+}
+module.exports.Uadmin = async function(req,res){
+    const admin= await Admin.findOne({username:req.body.username});
+    if(admin){
+        admin.username=req.body.username;
+        admin.password=req.body.password;
+        admin.save();
+        return res.redirect('back');
+    }
+    return res.redirect('/');
 }

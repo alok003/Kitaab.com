@@ -44,8 +44,26 @@ admin gives login form
 
 Atlas username pass for this project
 KitaabComADM
-Hf23kJblkancwxPZ
+wpELrj5wPcuc0nuu
 
 
 
 mongodb+srv://KitaabComADM:<password>@cluster0.pitwm0u.mongodb.net/?retryWrites=true&w=majority
+
+
+
+make template
+add backend
+admin page and login singnup and create
+
+
+
+
+
+
+user create and sign in 
+apna profile update kr paa rha file upload ke liye 
+file upload and view 
+sign in with googol 
+admin page 
+extras 

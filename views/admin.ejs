@@ -19,7 +19,7 @@
     </li>
     <li class="nav-item" role="presentation">
       <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Admin Console</button>
-    </li>s
+    </li>
     <li class="nav-item" role="presentation">
       <a class="nav-link" href="/sign-out">Sign-out</a>
     </li>
@@ -27,7 +27,41 @@
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">User Controls</div>
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">Posts Control</div>
-    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">Admin Controls make a modal for new admin entry form !!!!! for /create-new-admin</div>
+    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+      <h1 class="display-1 fs-1">Hello, Admin <h1 class="display-1 text-success fs-1"><%=locals.user.username%></h1></h1>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col border border-primary p-3 mx-3">
+            <p class="fs-1">Create new Admin</p>
+            <form action="/create-new-admin" method="post">
+              <div class="mb-3">
+                <label for="username" class="form-label">User Name</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+          <div class="col border border-primary p-3 mx-3">
+            <p class="fs-1">Update your credentials</p>
+            <form action="/update-admin" method="post">
+              <div class="mb-3">
+                <label for="username" class="form-label">User Name</label>
+                <input type="string" class="form-control" id="username" value="<%=locals.user.username%>" required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" value="<%=locals.user.password%>" required>
+              </div>
+              <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <footer class="footer bg-light p-4">
     <div class="container text-center">

@@ -39,7 +39,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link"data-bs-toggle="modal" data-bs-target="#admmodal">Admin</a>
+            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#admmodal">Admin</a>
           </li>
         </ul>
         <form class="d-flex" role="search">
@@ -85,7 +85,7 @@
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="submit" class="btn btn-primary">Google SignIn</button>
+          <button type="submit" class="btn btn-primary">Google SignIn</button>
         </div>
       </div>
     </div>
@@ -123,21 +123,22 @@
           <h5 class="modal-title">Sign In</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <form>
+        <form action="/createSession" method="post">
+          <div class="modal-body">
             <div class="mb-3">
               <label for="username_admin" class="form-label">User Name</label>
-              <input type="string" class="form-control" id="username_admin" aria-describedby="emailHelp">
+              <input type="string" class="form-control" id="username_admin" name="username"
+                aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
               <label for="Password1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="Password1">
+              <input type="password" class="form-control" name="password" id="Password1">
             </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

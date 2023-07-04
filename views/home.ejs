@@ -50,6 +50,7 @@
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#linmodal">
               Log In
             </button>
+            <button type="button" class="btn btn-danger">Google SignIn</button>
           </div>
         </form>
       </div>
@@ -62,31 +63,34 @@
           <h5 class="modal-title">Sign In</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <form>
+        <form action="/doc/create-user" method="post">
+          <div class="modal-body">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
               <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
             </div>
             <div class="mb-3">
               <label for="exampleInputrePassword2" class="form-label">Confirm Password</label>
-              <input type="password" class="form-control" id="exampleInputrePassword2">
+              <input type="password" class="form-control" id="exampleInputrePassword2" name="confirmpassword" required>
             </div>
             <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
               <label class="form-check-label" for="exampleCheck1">Agree to terms and Condition...</label>
             </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="submit" class="btn btn-primary">Google SignIn</button>
-        </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -97,22 +101,21 @@
           <h5 class="modal-title">Log In</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <form>
+        <form action="/doc/createSession" method="post">
+          <div class="modal-body">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="email" class="form-control" id="exampleInputEmail1" name="email" required>
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
             </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Submit</button>
-          <button type="submit" class="btn btn-primary">Google SignIn</button>
-        </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -127,11 +130,11 @@
           <div class="modal-body">
             <div class="mb-3">
               <label for="username_admin" class="form-label">User Name</label>
-              <input type="string" class="form-control" id="username_admin" name="username" aria-describedby="emailHelp">
+              <input type="string" class="form-control" id="username_admin" name="username" aria-describedby="emailHelp" required>
             </div>
             <div class="mb-3">
               <label for="Password1" class="form-label">Password</label>
-              <input type="password" class="form-control" name="password" id="Password1">
+              <input type="password" class="form-control" name="password" id="Password1" required>
             </div>
           </div>
           <div class="modal-footer">

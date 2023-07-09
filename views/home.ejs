@@ -1,209 +1,49 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kitaab.com</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-</head>
-
-<body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">Kitaab.com</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/about">About</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Documents
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/doc/view">View Documents</a></li>
-              <li><a class="dropdown-item" href="/doc/dashboard">Upload Documents</a></li>
-              <li><a class="dropdown-item disabled" href="#">Request Documents</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"data-bs-toggle="modal" data-bs-target="#admmodal">Admin</a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <div class="container">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sinmodal">
-              Sign In
-            </button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#linmodal">
-              Log In
-            </button>
-            <button type="button" class="btn btn-danger">Google SignIn</button>
-          </div>
-        </form>
-      </div>
+<div id="carouselExampleFade" class="carousel slide carousel-fade">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg" class="d-block w-100 h-50" alt="...">
     </div>
-  </nav>
-  <div class="modal" id="sinmodal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Sign In</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form action="/doc/create-user" method="post">
-          <div class="modal-body">
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
-              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-            </div>
-            <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="name" name="name" required>
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputrePassword2" class="form-label">Confirm Password</label>
-              <input type="password" class="form-control" id="exampleInputrePassword2" name="confirmpassword" required>
-            </div>
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-              <label class="form-check-label" for="exampleCheck1">Agree to terms and Condition...</label>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </form>
-      </div>
+    <div class="carousel-item">
+      <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJvb2tzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" class="d-block w-100 h-50" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://images.unsplash.com/photo-1491841573634-28140fc7ced7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="d-block w-100 h-50" alt="...">
     </div>
   </div>
-  <div class="modal" id="linmodal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Log In</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form action="/doc/createSession" method="post">
-          <div class="modal-body">
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" name="email" required>
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </form>
+</div>
+<div class="container px-10">
+  <div class="card mb-3 px-10">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img
+          src="data:image/png;base64,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"
+          class="img-fluid rounded-start" alt="...">
       </div>
-    </div>
-  </div>
-  <div class="modal" id="admmodal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Sign In</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form action="/createSession" method="post">
-          <div class="modal-body">
-            <div class="mb-3">
-              <label for="username_admin" class="form-label">User Name</label>
-              <input type="string" class="form-control" id="username_admin" name="username" aria-describedby="emailHelp" required>
-            </div>
-            <div class="mb-3">
-              <label for="Password1" class="form-label">Password</label>
-              <input type="password" class="form-control" name="password" id="Password1" required>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </form>
-        
-      </div>
-    </div>
-  </div>
-  <div id="carouselExampleFade" class="carousel slide carousel-fade">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg" class="d-block w-100 h-50" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJvb2tzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" class="d-block w-100 h-50" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="https://images.unsplash.com/photo-1491841573634-28140fc7ced7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="d-block w-100 h-50" alt="...">
-      </div>
-    </div>
-  </div>
-  <div class="container px-10">
-    <div class="card mb-3 px-10">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img
-            src="data:image/png;base64,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"
-            class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8 bg-primary-subtle border border-primary-subtle rounded-3">
-          <div class="card-body">
-            <h5 class="card-title">Overview</h5>
-            <p class="card-text">this website is made for the convienience of students such that they can download or
-              refer to notes and reference materials for college or other exams </p>
-            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card mb-3 px-10 ">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img
-            src="data:image/png;base64,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"
-            class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8 bg-primary-subtle border border-primary-subtle rounded-3 ">
-          <div class="card-body">
-            <h5 class="card-title">How to</h5>
-            <p class="card-text">We provide ample amount of notes and references for preparation of students such that
-              they can prepare for exams ...</p>
-            <p class="card-text"><small class="text-body-secondary">Last updated 10 mins ago</small></p>
-          </div>
+      <div class="col-md-8 bg-primary-subtle border border-primary-subtle rounded-3">
+        <div class="card-body">
+          <h5 class="card-title">Overview</h5>
+          <p class="card-text">this website is made for the convienience of students such that they can download or
+            refer to notes and reference materials for college or other exams </p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
         </div>
       </div>
     </div>
   </div>
-  <footer class="footer bg-light p-4">
-    <div class="container text-center">
-      <span class="text-muted">Kitaab.com All rights Reserved!!! &copy; 2023</span>
+  <div class="card mb-3 px-10 ">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img
+          src="data:image/png;base64,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"
+          class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8 bg-primary-subtle border border-primary-subtle rounded-3 ">
+        <div class="card-body">
+          <h5 class="card-title">How to</h5>
+          <p class="card-text">We provide ample amount of notes and references for preparation of students such that
+            they can prepare for exams ...</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 10 mins ago</small></p>
+        </div>
+      </div>
     </div>
-  </footer>
-
-  <!-- <h1>Hello, world!</h1> -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-    crossorigin="anonymous"></script>
-</body>
-
-</html>
+  </div>
+</div>

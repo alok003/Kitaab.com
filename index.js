@@ -2,14 +2,20 @@ const express=require('express');
 const app=express();
 const port = process.env.PORT || 8000;
 const db=require('./config/mongoose');
+const expressLayouts = require('express-ejs-layouts');
 const bodyParser=require('body-parser')
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static('./assets'));
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
+const passportGoogle = require('./config/passport-google-oauth-2-strategy');
 const MongoStore = require('connect-mongo')(session);
 
+
+app.use(expressLayouts);
+app.set('layout extractStyles', true);
+app.set('layout extractScripts', true);
 
 
 app.use(session({

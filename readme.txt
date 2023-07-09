@@ -54,16 +54,77 @@ mongodb+srv://KitaabComADM:<password>@cluster0.pitwm0u.mongodb.net/?retryWrites=
 
 make template
 add backend
-admin page and login singnup and create
+all page render control
+user db 
+add avtr to user 
+google sign in
+user upload file
 
 
 
 
 
 
-user create and sign in 
-apna profile update kr paa rha file upload ke liye 
-file upload and view 
-sign in with googol 
-admin page 
-extras 
+
+
+manage own{
+    dashboard preview{
+        two part{
+            all owned files listed down  with file title  with delete btn and no.of likes
+            on click open modal{
+                edit file specs
+            }
+        }{
+            update profile{
+                password
+                confirm password
+            }
+        }
+    }
+}
+
+      <ol class="list-group list-group-numbered">
+        <%for(i in files){%>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold"><%=i.title%></div>
+              <%=i.description%>
+            </div>
+            <span class="badge bg-primary rounded-pill"><%i.likes%></span>
+          </li>
+          <%}%>
+      </ol>
+
+
+user view file
+
+like system
+
+user dashboard
+admin dashboard
+
+extras{
+    gmail se avtr aaya chhange kr 
+    nodemailer
+}
+
+
+
+
+user{
+    filesContrib[fileid],
+    liked[fileid]
+}
+
+
+
+
+
+file {
+    fileid
+    title
+    subject 
+    user id
+    likes[userid]
+    tags[string]
+}

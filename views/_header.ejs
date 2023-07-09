@@ -1,0 +1,166 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Kitaab.com</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Documents
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/doc/view">View Documents</a></li>
+              <%if(locals.user&&locals.user.editor==true){%>
+                <li><a class="dropdown-item" href="/doc/dashboard/dashboardView">Upload Documents</a></li>
+              <%}else if(locals.user){%>
+                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#Uusermodal">Upload Documents</a></li>
+              <%}else{%>
+                <li><a class="dropdown-item disabled" href="/doc/dashboard/dashboardView">Upload Documents</a></li>
+              <%}%>
+              <li><a class="dropdown-item disabled" href="#">Request Documents</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <%if(locals.user&&locals.user.admin==true){%>
+              <a class="nav-link" href="/admin/adminProfile">Admin</a>
+            <%}else{%>
+              <a class="nav-link disabled" href="/admin/adminProfile">Admin</a>
+            <%}%>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <%if(locals.user){%>
+            <div class="container">
+              <a href="/doc/sign-out"><button type="button" class="btn btn-danger">sign out</button></a>
+            </div>
+          <%}else{%>
+            <div class="container">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sinmodal">
+                Sign In
+              </button>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#linmodal">
+                Log In
+              </button>
+              <a href="/doc/auth/google"><button type="button" class="btn btn-danger">Google Sign In</button></a>
+            </div>
+          <%}%>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="modal" id="sinmodal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Sign In</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="/doc/create-user" method="post">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputrePassword2" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" id="exampleInputrePassword2" name="confirmpassword" required>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+              <label class="form-check-label" for="exampleCheck1">Agree to terms and Condition...</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="linmodal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Log In</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="/doc/createSession" method="post">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal" id="Uusermodal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Update your Profile </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="/doc/updateP" enctype="multipart/form-data" method="post">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="branch" class="form-label">Branch</label>
+              <select class="form-select" aria-label="Default select example" id="branch" name="branch" required> 
+                <option selected>Open this select menu</option>
+                <option value="Information Technology">Information Tech.</option>
+                <option value="Computer Science Engineering">Computer Science Engg.</option>
+                <option value="Electrical Enginnering">Electrical Engg.</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="college" class="form-label">College</label>
+              <input type="text" class="form-control" id="college" name="college" value="M.I.T.S" required>
+            </div>
+            <div class="mb-3">
+              <label for="pass" class="form-label">Passing year</label>
+              <input type="number" class="form-control" id="pass" name="passing" required>
+            </div>
+            <div class="mb-3">
+              <label for="Avatar" class="form-label">Avatar</label>
+              <input type="file" class="form-control" id="Avatar" name="avatar">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

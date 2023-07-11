@@ -37,13 +37,7 @@ const userSchema=new mongoose.Schema({
     fileContrib:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:'files'
-    }],
-    liked:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'files'
-
     }]
-
 },{
     timestamps:true
 });

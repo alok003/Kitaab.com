@@ -2,9 +2,6 @@ const User = require('../model/users.js');
 const File = require('../model/files.js');
 const fs = require('fs');
 const path=require('path');
-// const dirPath = path.join(__dirname, 'public/pdfs');
-
-// const dirPath = require('\\uploads\\users\\files');
 
 
 module.exports.view = async function(req,res){
@@ -60,22 +57,13 @@ module.exports.update =async function(req,res){
     return res.redirect('dashboard/dashboardView');
 
 }
-module.exports.likeF=function(req,res){
-
-}
-module.exports.download=async function(req,res){
-    const file=await File.findById(req.params.id);
-    const relativeFilePath = file.file;
-    const filepath=path.join(__dirname,'..','\\uploads\\users\\files');
-    const ff=filepath+'\\'+path.basename(relativeFilePath)+'.pdf';
-    console.log(ff);
-    fs.readFile(ff,(err,file)=>{
-        if(err){
-            console.log(err);
-        }
-
-        res.setHeader('Content-Type','application/pdf');
-        res.setHeader('Content-Disposition','attachment;filename="file.pdf"');
-        res.send(file);
-    })
+module.exports.likeF=async function(req,res){
+    const fileid=req.params.id;
+    const file=await File.findById(fileid);
+    if(!file.likesU.includes(req.user.id)){
+        file.likes++;
+        file.likesU.push(req.user.id);
+        file.save();
+    }
+    return res.redirect('back')
 }

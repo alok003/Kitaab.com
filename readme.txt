@@ -128,3 +128,30 @@ file {
     likes[userid]
     tags[string]
 }
+
+
+
+user me like kro file to dikhe
+likes me aaye isne kiya 
+delete syncronisation
+one man one like 
+
+
+
+about page banao 
+
+
+admin page banao
+{
+    {
+        make or delete admin
+    }
+    {
+        review post 
+        delete post
+    }
+    {
+        delete user
+        change details of user 
+    }
+}

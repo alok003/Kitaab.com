@@ -11,7 +11,7 @@ const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const passportGoogle = require('./config/passport-google-oauth-2-strategy');
 const MongoStore = require('connect-mongo')(session);
-
+app.use('/uploads', express.static(__dirname+'/uploads'));
 
 app.use(expressLayouts);
 app.set('layout extractStyles', true);
@@ -20,7 +20,6 @@ app.set('layout extractScripts', true);
 
 app.use(session({
     name: 'Kitaab.com',
-    // TODO change the secret before deployment in production mode
     secret: 'confidential',
     saveUninitialized: false,
     resave: false,
@@ -37,7 +36,6 @@ app.use(session({
             console.log(err ||  'connect-mongodb setup ok');
         }
     )
-    // store: MongoStore.create({ mongoUrl: process.env.CONNECTIONSTRING })
 }));
 app.use(passport.initialize());
 app.use(passport.session());

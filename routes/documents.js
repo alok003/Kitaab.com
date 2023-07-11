@@ -6,7 +6,6 @@ const docController=require('../controllers/doc_controller');
 
 router.get('/view',docController.view);
 router.get('/likeF/:id',docController.likeF);
-router.get('/download/:id',docController.download);
 router.use('/dashboard',require('./dashboard'));
 router.post('/createSession',passport.authenticate('local',{failureRedirect:'/'},),docController.Csession);
 router.post('/create-user',docController.Cuser);

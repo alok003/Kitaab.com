@@ -7,16 +7,18 @@
         <li class="list-group-item d-inline-flex justify-content-between align-items-start">
           <div class="ms-2 me-auto">
             <div class="fw-bold"><%=i.title%></div>
-            <%=i.description%>
+            <details>
+              <summary>Click to expand</summary>
+              <p><%=i.description%></p>
+            </details>
           </div>
+          <span class="badge bg-primary rounded-pill mx-4"><%=i.likes%></span>
           <%if(locals.user){%>
           <a href="/doc/likeF/<%=i._id%>"><button class="btn btn-success mx-2">Like</button></a>
           <%}else{%>
             <a href="#"><button class="btn btn-success disabled mx-2">Like</button></a>
         <%}%>
-          <!-- <a href="file:///E:/code%20play%20ground/web%20dev/backend/Kitaab.com/uploads/users/files/file-1688837929973"><button class="btn btn-success mx-2">Download</button></a> -->
-          <a href="/doc/download/<%=i._id%>"><button class="btn btn-success mx-2">Download</button></a>
-          <span class="badge bg-primary rounded-pill"><%=i.likes%></span>
+            <iframe src="http://localhost:8000<%=i.file%>" frameborder="0" width="600px"></iframe>
         </li>
         <%}%>
       </ol>

@@ -50,18 +50,14 @@ module.exports.delfile= async function(req,res){
     const file=await File.findById(fileid);
     console.log('er0');
     if(file){
-        console.log('er1');
         const user=await User.findById(file.user);
         const fileIndex = user.fileContrib.indexOf(fileid);
         if (fileIndex > -1) {
             user.fileContrib.splice(fileIndex, 1);
         }
-        user.save();
-        console.log('er2');
+        user.save()
         fs.unlinkSync(path.join(__dirname,'..',file.file));
         await File.findByIdAndDelete(fileid);
-        console.log('er3');
     }
-    console.log('er4');
     return res.redirect('/doc/dashboard/dashboardView');
 }
